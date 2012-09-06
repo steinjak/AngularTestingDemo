@@ -7,7 +7,11 @@
             <img ng-src="{{item.image}}" alt="{{item.name}}">
             <h3>{{item.name}}</h3>
             <p>Price: {{item.price}} NOK</p>
-            <a class="btn btn-primary" ng-href="#/categories/{{item.id}}">Buy now</a>
+            <form>
+                <div class="input-append">
+                <input type="text" value="1" class="input-mini" style="text-align: right" /><a class="btn btn-primary" ng-href="#/categories/{{item.id}}">Buy now</a>
+                </div>
+            </form>
         </div>
     </li>
 </ul>
