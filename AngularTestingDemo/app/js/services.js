@@ -7,7 +7,7 @@ angular.module('myApp.services', ['ngMockE2E'])
                     id: 'food',
                     name: 'Food',
                     blurb: 'Eat it or leave it',
-                    image: 'http://lorempixel.com/300/200/food/1/',
+                    image: 'http://lorempixel.com/350/200/food/1/',
                     items: [
                         { name: 'Tasty thing', price: 200, image: 'http://lorempixel.com/260/180/food/1/' },
                         { name: 'Yummy yam', price: 150, image: 'http://lorempixel.com/260/180/food/2/' },
@@ -25,7 +25,7 @@ angular.module('myApp.services', ['ngMockE2E'])
                     id: 'sports',
                     name: 'Sportify',
                     blurb: 'Sporty sportsmen sporting silly sounds!',
-                    image: 'http://lorempixel.com/300/200/sports/1/',
+                    image: 'http://lorempixel.com/350/200/sports/1/',
                     items: [
                         { name: 'Crazy cricket', price: 120, image: 'http://lorempixel.com/260/180/sports/1/' },
                         { name: 'Surfin\' sally', price: 420, image: 'http://lorempixel.com/260/180/sports/2/' },
@@ -41,7 +41,7 @@ angular.module('myApp.services', ['ngMockE2E'])
                     id: 'animals',
                     name: 'Animal channel',
                     blurb: 'You won\'t believe it\'s true',
-                    image: 'http://lorempixel.com/300/200/animals/1/',
+                    image: 'http://lorempixel.com/350/200/animals/1/',
                     items: [
                         { name: 'Rhino Mocks', price: 333, image: 'http://lorempixel.com/260/180/animals/1/' },
                         { name: 'Gorilla groom', price: 110, image: 'http://lorempixel.com/260/180/animals/2/' },

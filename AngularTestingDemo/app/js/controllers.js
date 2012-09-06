@@ -31,5 +31,12 @@ CategoryController.$inject = ['$scope', '$http', '$routeParams'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');
+    $scope.cart = {
+        items: [
+            { product: { name: 'Hot ha-ha\'s', price: 100, image: 'http://lorempixel.com/260/180/food/4/' }, quantity: 3, price: 300 },
+            { product: { name: 'Airborne athlete', price: 100, image: 'http://lorempixel.com/260/180/sports/8/'}, quantity: 1, price: 100 }
+        ],
+        sum: 400
+    };
 };
 CartController.$inject = ['$scope'];
