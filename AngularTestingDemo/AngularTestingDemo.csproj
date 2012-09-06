@@ -51,8 +51,6 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include=".gitattributes" />
-    <Content Include=".gitignore" />
     <Content Include="app\css\.gitignore" />
     <Content Include="app\css\app.css" />
     <Content Include="app\css\bootstrap-responsive.css" />
