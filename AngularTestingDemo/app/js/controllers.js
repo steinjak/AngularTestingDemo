@@ -38,6 +38,10 @@ CategoryController.$inject = ['$scope', '$http', '$routeParams', '$rootScope'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');
-    
+    var sum = 0;
+    for (var i = 0; i < $scope.cart.length; i++) {
+        sum += $scope.cart[i].product.price * $scope.cart[i].quantity;
+    }
+    $scope.sum = sum;
 };
 CartController.$inject = ['$scope'];

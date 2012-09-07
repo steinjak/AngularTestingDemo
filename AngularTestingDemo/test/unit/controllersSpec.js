@@ -1,5 +1,21 @@
 'use strict';
 
+describe('CartController', function () {
+    var scope;
+
+    beforeEach(inject(function ($rootScope) {
+        scope = $rootScope.$new();
+        scope.cart = [{ product: { price: 200 }, quantity: 2 }, { product: { price: 100 }, quantity: 1}];
+        var ctl = new CartController(scope);
+    }));
+
+    it('should show the total price', function () {
+        expect(scope.sum).toEqual(500);
+    });
+
+    it('should show a price per order line');
+});
+
 describe('CategoryController', function () {
     var scope;
 
