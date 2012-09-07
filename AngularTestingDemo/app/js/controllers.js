@@ -10,11 +10,13 @@ var HomeController = function ($scope) {
 };
 HomeController.$inject = ['$scope'];
 
-var BrowseController = function ($scope) {
+var BrowseController = function ($scope, $http) {
     $scope.$emit('areaChanged', 'browse');
-    // TODO: Fill $scope.categories with data from /categories
+    $http.get('/categories').success(function (data) {
+        $scope.categories = data;
+    });
 };
-BrowseController.$inject = ['$scope'];
+BrowseController.$inject = ['$scope', '$http'];
 
 var CategoryController = function ($scope) {
     $scope.$emit('areaChanged', 'browse');

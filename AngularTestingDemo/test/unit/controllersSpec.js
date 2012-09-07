@@ -1,5 +1,20 @@
 'use strict';
 
+describe('BrowseController', function () {
+    var scope;
+
+    beforeEach(inject(function ($rootScope, $http, $httpBackend) {
+        $httpBackend.expectGET('/categories').respond({ one: { id: 'one' }, two: { id: 'two'} });
+        scope = $rootScope.$new();
+        var ctl = new BrowseController(scope, $http);
+        $httpBackend.flush();
+    }));
+
+    it('should fetch the categories from /categories and put them into the scope', function () {
+        expect(scope.categories.one.id).toEqual('one');
+    });
+});
+
 describe('HomeController', function () {
     var ctl, scope, emittedArea;
 
