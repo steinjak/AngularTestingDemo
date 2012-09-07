@@ -10,33 +10,21 @@ var HomeController = function ($scope) {
 };
 HomeController.$inject = ['$scope'];
 
-var BrowseController = function ($scope, $http) {
+var BrowseController = function ($scope) {
     $scope.$emit('areaChanged', 'browse');
-    $http.get('/categories').success(function (data) {
-        $scope.categories = data;
-    });
+    // TODO: Fill $scope.categories with data from /categories
 };
-BrowseController.$inject = ['$scope', '$http'];
+BrowseController.$inject = ['$scope'];
 
-var CategoryController = function ($scope, $http, $routeParams) {
+var CategoryController = function ($scope) {
     $scope.$emit('areaChanged', 'browse');
-    $scope.$on('$routeChangeSuccess', function() {
-        var categoryId = $routeParams.id;
-        $http.get('/categories/' + categoryId).success(function (data) {
-            $scope.category = data;
-        });
-    });
+    // TODO: Fill $scope.category with data from /categories/:id
+    // Hint: $routeChangeSuccess
 };
-CategoryController.$inject = ['$scope', '$http', '$routeParams'];
+CategoryController.$inject = ['$scope'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');
-    $scope.cart = {
-        items: [
-            { product: { name: 'Hot ha-ha\'s', price: 100, image: 'http://lorempixel.com/260/180/food/4/' }, quantity: 3, price: 300 },
-            { product: { name: 'Airborne athlete', price: 100, image: 'http://lorempixel.com/260/180/sports/8/'}, quantity: 1, price: 100 }
-        ],
-        sum: 400
-    };
+    // TODO: Fill $scope.cart with object of shape: {items:[{product:{...}, quantity:Number, price:Number}, ...], sum:Number}
 };
 CartController.$inject = ['$scope'];

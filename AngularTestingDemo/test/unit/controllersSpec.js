@@ -27,14 +27,3 @@ describe('PageController', function () {
         expect(scope.activeArea).toEqual('testArea');
     });
 });
-
-describe('CategoriesController', function () {
-    beforeEach(inject(function ($rootScope, $httpBackend, $http) {
-        $httpBackend.expectGET('/categories').respond({one: {id:'one'}, two: {id: 'two'}});
-        var ctl = new BrowseController($rootScope.$new(), $http);
-    }));
-
-    it('should fetch resources from the server', inject(function($httpBackend) {
-        $httpBackend.verifyNoOutstandingExpectation();
-    }));
-});
