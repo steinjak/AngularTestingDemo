@@ -67,4 +67,10 @@ describe('PageController', function () {
         scope.$emit('areaChanged', 'testArea');
         expect(scope.activeArea).toEqual('testArea');
     });
+
+    it('should update the cart display when receiving addItemToCart', function () {
+        scope.$emit('itemAddedToCart', { product: {}, quantity: 3 });
+        expect(scope.cart.length).toBe(1);
+        expect(scope.cart[0].quantity).toBe(3);
+    });
 });

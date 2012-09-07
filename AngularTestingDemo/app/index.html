@@ -41,8 +41,8 @@
                   </li>
               </ul>
               <ul class="nav pull-right">
-                  <li class="dropdown" ng-show="cart.items.length > 0">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{cart.items.length}} items in cart <b class="caret"></b></a>
+                  <li class="dropdown" ng-show="cart.length > 0">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{cart.length}} items in cart <b class="caret"></b></a>
                       <ul class="dropdown-menu">
                           <li ng-repeat="item in cart"><span class="badge badge-inverse">{{item.quantity}}</span>{{item.product.name}}</li>
                       </ul>

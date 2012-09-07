@@ -2,6 +2,10 @@ var PageController = function ($scope) {
     $scope.$on('areaChanged', function (event, area) {
         $scope.activeArea = area;
     });
+    $scope.cart = [];
+    $scope.$on('itemAddedToCart', function (event, item) {
+        $scope.cart.push(item);
+    });
 };
 PageController.$inject = ['$scope'];
 
@@ -34,6 +38,6 @@ CategoryController.$inject = ['$scope', '$http', '$routeParams', '$rootScope'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');
-    // TODO: Fill $scope.cart with object of shape: {items:[{product:{...}, quantity:Number, price:Number}, ...], sum:Number}
+    
 };
 CartController.$inject = ['$scope'];
