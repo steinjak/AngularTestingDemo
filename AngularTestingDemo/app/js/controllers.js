@@ -38,10 +38,18 @@ CategoryController.$inject = ['$scope', '$http', '$routeParams', '$rootScope'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');
+    var priceOf = function (item) {
+        return item.product.price * item.quantity;
+    };
+
     var sum = 0;
     for (var i = 0; i < $scope.cart.length; i++) {
-        sum += $scope.cart[i].product.price * $scope.cart[i].quantity;
+        sum += priceOf($scope.cart[i]);
     }
     $scope.sum = sum;
+    $scope.cartItems = angular.copy($scope.cart);
+    for (var j = 0; j < $scope.cartItems.length; j++) {
+        $scope.cartItems[j].price = priceOf($scope.cart[j]);
+    }
 };
 CartController.$inject = ['$scope'];

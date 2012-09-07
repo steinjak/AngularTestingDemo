@@ -13,7 +13,11 @@ describe('CartController', function () {
         expect(scope.sum).toEqual(500);
     });
 
-    it('should show a price per order line');
+    it('should show a price per order line', function () {
+        expect(scope.cartItems.length).toEqual(scope.cart.length);
+        expect(scope.cartItems[0].price).toEqual(400);
+        expect(scope.cartItems[1].price).toEqual(100);
+    });
 });
 
 describe('CategoryController', function () {
