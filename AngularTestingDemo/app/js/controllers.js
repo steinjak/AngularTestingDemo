@@ -18,7 +18,7 @@ var BrowseController = function ($scope, $http) {
 };
 BrowseController.$inject = ['$scope', '$http'];
 
-var CategoryController = function ($scope, $http, $routeParams) {
+var CategoryController = function ($scope, $http, $routeParams, $rootScope) {
     $scope.$emit('areaChanged', 'browse');
     $scope.$on('$routeChangeSuccess', function () {
         $http.get('/categories/' + $routeParams.id).success(function (data) {
@@ -27,10 +27,10 @@ var CategoryController = function ($scope, $http, $routeParams) {
     });
 
     $scope.addToCart = function (product, quantity) {
-        $scope.$broadcast('itemAddedToCart', { product: product, quantity: quantity });
+        $rootScope.$broadcast('itemAddedToCart', { product: product, quantity: quantity });
     };
 };
-CategoryController.$inject = ['$scope', '$http', '$routeParams'];
+CategoryController.$inject = ['$scope', '$http', '$routeParams', '$rootScope'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');

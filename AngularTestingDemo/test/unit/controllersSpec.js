@@ -7,7 +7,7 @@ describe('CategoryController', function () {
         scope = $rootScope.$new();
         $httpBackend.expectGET('/categories/food').respond({ id: 'food' });
         var routeParams = { id: 'food' };
-        var ctl = new CategoryController(scope, $http, routeParams);
+        var ctl = new CategoryController(scope, $http, routeParams, $rootScope);
         scope.$emit('$routeChangeSuccess');
         $httpBackend.flush();
     }));
@@ -16,14 +16,14 @@ describe('CategoryController', function () {
         expect(scope.category.id).toEqual('food');
     });
 
-    it('should broadcast an event when the user tries to buy an item', function () {
+    it('should broadcast an event when the user tries to buy an item', inject(function ($rootScope) {
         var broadcasted;
-        scope.$on('itemAddedToCart', function (event, params) {
+        $rootScope.$on('itemAddedToCart', function (event, params) {
             broadcasted = params;
         });
         scope.addToCart({ id: 'one' }, 3);
         expect(broadcasted).toBeDefined();
-    });
+    }));
 });
 
 describe('BrowseController', function () {
