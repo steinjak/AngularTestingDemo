@@ -15,6 +15,15 @@ describe('CategoryController', function () {
     it('should fetch the category from /categories/food and put it into the scope', function () {
         expect(scope.category.id).toEqual('food');
     });
+
+    it('should broadcast an event when the user tries to buy an item', function () {
+        var broadcasted;
+        scope.$on('itemAddedToCart', function (event, params) {
+            broadcasted = params;
+        });
+        scope.addToCart({ id: 'one' }, 3);
+        expect(broadcasted).toBeDefined();
+    });
 });
 
 describe('BrowseController', function () {
