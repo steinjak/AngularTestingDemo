@@ -18,12 +18,16 @@ var BrowseController = function ($scope, $http) {
 };
 BrowseController.$inject = ['$scope', '$http'];
 
-var CategoryController = function ($scope) {
+var CategoryController = function ($scope, $http, $routeParams) {
     $scope.$emit('areaChanged', 'browse');
-    // TODO: Fill $scope.category with data from /categories/:id
+    $scope.$on('$routeChangeSuccess', function() {
+        $http.get('/categories/' + $routeParams.id).success(function (data) {
+            $scope.category = data;
+        }); 
+    });
     // Hint: $routeChangeSuccess
 };
-CategoryController.$inject = ['$scope'];
+CategoryController.$inject = ['$scope', '$http', '$routeParams'];
 
 var CartController = function ($scope) {
     $scope.$emit('areaChanged', 'cart');

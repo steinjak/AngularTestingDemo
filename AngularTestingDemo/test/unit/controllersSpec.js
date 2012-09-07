@@ -1,5 +1,22 @@
 'use strict';
 
+describe('CategoryController', function () {
+    var scope;
+
+    beforeEach(inject(function ($http, $httpBackend, $rootScope) {
+        scope = $rootScope.$new();
+        $httpBackend.expectGET('/categories/food').respond({ id: 'food' });
+        var routeParams = { id: 'food' };
+        var ctl = new CategoryController(scope, $http, routeParams);
+        scope.$emit('$routeChangeSuccess');
+        $httpBackend.flush();
+    }));
+
+    it('should fetch the category from /categories/food and put it into the scope', function () {
+        expect(scope.category.id).toEqual('food');
+    });
+});
+
 describe('BrowseController', function () {
     var scope;
 
